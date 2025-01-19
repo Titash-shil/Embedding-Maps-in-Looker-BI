@@ -1,4 +1,4 @@
-# Analyze Customer Reviews with Gemini Using Python Notebooks || [GSP1249](https://www.cloudskillsboost.google/focuses/98857?parent=catalog) || 
+# || Embedding Maps in Looker BI ||
 
 ## # Like, comment, share & Don't forget to subscribe [QwikLab Explorers](https://youtube.com/@titashshil?si=RgamNu1dc9jVIbJN) 👍😄🤝
 
