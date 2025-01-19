@@ -11,7 +11,7 @@
 ---
 
 - ## Go to Develop > qwiklabs-flights-maps > general > flights
-- ### Open qwiklabs-flights-maps.model file
+- ### Open `qwiklabs-flights-maps.model` file
 > Replace the below commands on here!!
 
 ```
@@ -68,7 +68,7 @@ explore: flights {
 
 # Place in `qwiklabs-flights-maps` model
 explore: +flights {
-    query: techcps_1 {
+    query: QwikLab_Explorers_1 {
       dimensions: [aircraft_destination.map_location, aircraft_origin.map_location]
       measures: [count]
       filters: [
@@ -82,7 +82,7 @@ explore: +flights {
 # Place in `qwiklabs-flights-maps` model
 
 explore: +flights {
-    query: techcps_2 {
+    query: QwikLab_Explorers_2 {
       dimensions: [aircraft.region]
       measures: [aircraft.count]
     }
