@@ -10,9 +10,10 @@
 ### 🚨 First, click the toggle button to turn on the Development mode.
 ---
 
-- Go to Develop > qwiklabs-flights-maps > general > flights
-- Open qwiklabs-flights-maps.model file
+- ## Go to Develop > qwiklabs-flights-maps > general > flights
+- ### Open qwiklabs-flights-maps.model file
 > Replace the below commands on here!!
+
 ```
 connection: "bigquery_public_data_looker"
 # include all views in this project
@@ -67,7 +68,7 @@ explore: flights {
 
 # Place in `qwiklabs-flights-maps` model
 explore: +flights {
-    query: QwikLab_Explorers_1 {
+    query: techcps_1 {
       dimensions: [aircraft_destination.map_location, aircraft_origin.map_location]
       measures: [count]
       filters: [
@@ -81,7 +82,7 @@ explore: +flights {
 # Place in `qwiklabs-flights-maps` model
 
 explore: +flights {
-    query: QwikLab_Explorers_2 {
+    query: techcps_2 {
       dimensions: [aircraft.region]
       measures: [aircraft.count]
     }
@@ -90,10 +91,67 @@ explore: +flights {
 
 ```
 
-- Open the aircraft.view file
+- ### Open the `aircraft.view` file
 > Replace the below commands on here!!
 
 ```
+ view: aircraft {
+  sql_table_name: `cloud-training-demos.looker_flights.aircraft` ;;
+
+  dimension: tail_num {
+    type: string
+    primary_key: yes
+    sql: rtrim(${TABLE}.tail_num) ;;
+  }
+
+  dimension: address1 {
+    type: string
+    sql: ${TABLE}.address1 ;;
+  }
+
+  dimension: address2 {
+    type: string
+    sql: ${TABLE}.address2 ;;
+  }
+
+  dimension_group: air_worth {
+    type: time
+    timeframes: [time, date, week, month, year, raw]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.air_worth_date ;;
+  }
+
+  dimension: aircraft_engine_code {
+    type: string
+    sql: ${TABLE}.aircraft_engine_code ;;
+  }
+
+  dimension: aircraft_engine_type_id {
+    type: number
+    sql: ${TABLE}.aircraft_engine_type_id ;;
+  }
+
+  dimension: aircraft_model_code {
+    type: string
+    sql: ${TABLE}.aircraft_model_code ;;
+  }
+
+  dimension: aircraft_serial {
+    type: string
+    sql: ${TABLE}.aircraft_serial ;;
+  }
+
+  dimension: aircraft_type_id {
+    type: number
+    sql: ${TABLE}.aircraft_type_id ;;
+  }
+
+  dimension_group: cert_issue {
+    type: time
+    timeframes: [time, date, week, month, year, raw]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.cert_issue_date ;;
   }
 
